@@ -1,0 +1,144 @@
+2025-03-12 18:52:12,843 68874 WARNING yipaierp odoo.service.server: Thread <Thread(odoo.service.http.request.6185070592, started 6185070592)> virtual real time limit (172/120s) reached. 
+2025-03-12 18:52:12,843 68874 INFO yipaierp odoo.service.server: Dumping stacktrace of limit exceeding threads before reloading 
+2025-03-12 18:52:12,844 68874 INFO yipaierp odoo.tools.misc: 
+# Thread: <Thread(odoo.service.http.request.6185070592, started 6185070592)> (db:n/a) (uid:n/a) (url:n/a) (qc:n/a qt:n/a pt:n/a)
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 973, in _bootstrap
+  self._bootstrap_inner()
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+  self.run()
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 953, in run
+  self._target(*self._args, **self._kwargs)
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socketserver.py", line 683, in process_request_thread
+  self.finish_request(request, client_address)
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socketserver.py", line 360, in finish_request
+  self.RequestHandlerClass(request, client_address, self)
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socketserver.py", line 747, in __init__
+  self.handle()
+File: "/opt/homebrew/lib/python3.10/site-packages/werkzeug/serving.py", line 342, in handle
+  BaseHTTPRequestHandler.handle(self)
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/server.py", line 433, in handle
+  self.handle_one_request()
+File: "/opt/homebrew/lib/python3.10/site-packages/werkzeug/serving.py", line 370, in handle_one_request
+  self.raw_requestline = self.rfile.readline()
+File: "/opt/homebrew/Cellar/python@3.10/3.10.16/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 717, in readinto
+  return self._sock.recv_into(b) 
+2025-03-12 18:52:12,844 68874 INFO yipaierp odoo.service.server: Initiating server reload 
+2025-03-12 18:52:13,095 68874 INFO yipaierp odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  
+2025-03-12 18:52:13,306 68874 INFO ? odoo: Odoo version 18.0 
+2025-03-12 18:52:13,307 68874 INFO ? odoo: Using configuration file at /Users/duguoyou/yipai-erp/odoo.conf 
+2025-03-12 18:52:13,307 68874 INFO ? odoo: addons paths: ['/Users/duguoyou/yipai-erp/odoo/addons', '/Users/duguoyou/Library/Application Support/Odoo/addons/18.0', '/Users/duguoyou/yipai-erp/addons'] 
+2025-03-12 18:52:13,307 68874 INFO ? odoo: database: yipai@localhost:5432 
+2025-03-12 18:52:13,352 68874 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2025-03-12 18:52:13,399 68874 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/local/bin/wkhtmltoimage 
+2025-03-12 18:52:13,456 68874 WARNING ? odoo.addons.web.models.res_partner: `vobject` Python module not found, vcard file generation disabled. Consider installing this module if you want to generate vcard files 
+2025-03-12 18:52:13,460 68874 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
+2025-03-12 18:52:13,476 68874 INFO yipaierp odoo.modules.loading: loading 1 modules... 
+2025-03-12 18:52:13,487 68874 INFO yipaierp odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2025-03-12 18:52:13,501 68874 INFO yipaierp odoo.modules.loading: loading 78 modules... 
+2025-03-12 18:52:13,555 68874 CRITICAL yipaierp odoo.modules.module: Couldn't load module product 
+2025-03-12 18:52:13,560 68874 WARNING yipaierp odoo.modules.loading: Transient module states were reset 
+2025-03-12 18:52:13,560 68874 ERROR yipaierp odoo.modules.registry: Failed to load registry 
+2025-03-12 18:52:13,560 68874 CRITICAL yipaierp odoo.service.server: Failed to initialize database `yipaierp`. 
+Traceback (most recent call last):
+  File "/Users/duguoyou/yipai-erp/odoo/service/server.py", line 1318, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/opt/homebrew/lib/python3.10/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/duguoyou/yipai-erp/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/registry.py", line 127, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/loading.py", line 476, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/duguoyou/yipai-erp/odoo/modules/loading.py", line 364, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/duguoyou/yipai-erp/odoo/modules/loading.py", line 185, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/duguoyou/yipai-erp/addons/product/__init__.py", line 4, in <module>
+    from . import controllers
+  File "/Users/duguoyou/yipai-erp/addons/product/controllers/__init__.py", line 3, in <module>
+    from . import pricelist_report
+  File "/Users/duguoyou/yipai-erp/addons/product/controllers/pricelist_report.py", line 7, in <module>
+    import xlsxwriter
+ModuleNotFoundError: No module named 'xlsxwriter'
+2025-03-12 18:53:28,381 68874 INFO ? odoo.modules.loading: loading 1 modules... 
+2025-03-12 18:53:28,388 68874 INFO ? odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2025-03-12 18:53:28,396 68874 INFO ? odoo.modules.loading: loading 78 modules... 
+2025-03-12 18:53:28,410 68874 CRITICAL ? odoo.modules.module: Couldn't load module product 
+2025-03-12 18:53:28,412 68874 WARNING ? odoo.modules.loading: Transient module states were reset 
+2025-03-12 18:53:28,413 68874 ERROR ? odoo.modules.registry: Failed to load registry 
+2025-03-12 18:53:28,413 68874 ERROR ? odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/Users/duguoyou/yipai-erp/odoo/modules/registry.py", line 104, in __new__
+    return cls.registries[db_name]
+  File "/opt/homebrew/lib/python3.10/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/duguoyou/yipai-erp/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/duguoyou/yipai-erp/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+KeyError: 'yipaierp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/duguoyou/yipai-erp/odoo/http.py", line 2372, in __call__
+    response = request._serve_db()
+  File "/Users/duguoyou/yipai-erp/odoo/http.py", line 1876, in _serve_db
+    self.registry, cr_readwrite = self._open_registry()
+  File "/Users/duguoyou/yipai-erp/odoo/http.py", line 1486, in _open_registry
+    registry = Registry(self.db)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/registry.py", line 106, in __new__
+    return cls.new(db_name)
+  File "/opt/homebrew/lib/python3.10/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/duguoyou/yipai-erp/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/registry.py", line 127, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/loading.py", line 476, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/duguoyou/yipai-erp/odoo/modules/loading.py", line 364, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/duguoyou/yipai-erp/odoo/modules/loading.py", line 185, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/duguoyou/yipai-erp/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/duguoyou/yipai-erp/addons/product/__init__.py", line 4, in <module>
+    from . import controllers
+  File "/Users/duguoyou/yipai-erp/addons/product/controllers/__init__.py", line 3, in <module>
+    from . import pricelist_report
+  File "/Users/duguoyou/yipai-erp/addons/product/controllers/pricelist_report.py", line 7, in <module>
+    import xlsxwriter
+ModuleNotFoundError: No module named 'xlsxwriter'
+2025-03-12 18:53:28,413 68874 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2025 18:53:28] "GET / HTTP/1.1" 500 - 12 0.005 0.033
+2025-03-12 18:53:31,969 68874 INFO yipaierp odoo.service.server: Initiating server reload 
+2025-03-12 19:00:01,245 72619 INFO ? odoo: Odoo version 18.0 
+2025-03-12 19:00:01,245 72619 INFO ? odoo: Using configuration file at /Users/duguoyou/yipai-erp/odoo.conf 
+2025-03-12 19:00:01,245 72619 INFO ? odoo: addons paths: ['/Users/duguoyou/yipai-erp/odoo/addons', '/Users/duguoyou/Library/Application Support/Odoo/addons/18.0', '/Users/duguoyou/yipai-erp/addons'] 
+2025-03-12 19:00:01,245 72619 INFO ? odoo: database: yipai@localhost:5432 
+2025-03-12 19:00:01,870 72619 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2025-03-12 19:00:01,931 72619 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/local/bin/wkhtmltoimage 
+2025-03-12 19:00:02,305 72619 INFO ? odoo.service.server: HTTP service (werkzeug) running on 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa:8069 
+2025-03-12 19:00:02,319 72619 INFO yipaierp odoo.modules.loading: loading 1 modules... 
+2025-03-12 19:00:02,322 72619 INFO yipaierp odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2025-03-12 19:00:02,338 72619 INFO yipaierp odoo.modules.loading: loading 78 modules... 
+2025-03-12 19:00:03,036 72619 INFO yipaierp odoo.modules.loading: 78 modules loaded in 0.70s, 0 queries (+0 extra) 
+2025-03-12 19:00:03,093 72619 INFO yipaierp odoo.modules.loading: Modules loaded. 
+2025-03-12 19:00:03,097 72619 INFO yipaierp odoo.modules.registry: Registry loaded in 0.792s 
+2025-03-12 19:00:07,290 72619 INFO yipaierp odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-03-12 19:00:07,321 72619 INFO yipaierp odoo.addons.base.models.res_device: User 2 inserts device log (1NO1JgN8kwOf76qB3DFK4XYqjFkaFG_fBN15zsBM1D) 
+2025-03-12 19:00:07,356 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "GET / HTTP/1.1" 303 - 13 0.015 0.053
+2025-03-12 19:00:07,571 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "GET /odoo HTTP/1.1" 200 - 92 0.062 0.150
+2025-03-12 19:00:07,706 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 9 0.003 0.003
+2025-03-12 19:00:07,709 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "GET /bus/websocket_worker_bundle?v=18.0-3 HTTP/1.1" 304 - 4 0.002 0.006
+2025-03-12 19:00:07,731 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 17 0.006 0.005
+2025-03-12 19:00:07,745 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "GET /websocket?version=18.0-3 HTTP/1.1" 101 - 1 0.000 0.002
+2025-03-12 19:00:07,799 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "POST /mail/data HTTP/1.1" 200 - 69 0.050 0.014
+2025-03-12 19:00:07,827 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "POST /web/action/load HTTP/1.1" 200 - 7 0.004 0.104
+2025-03-12 19:00:07,898 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "POST /mail/data HTTP/1.1" 200 - 66 0.036 0.014
+2025-03-12 19:00:07,932 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:07] "POST /mail/inbox/messages HTTP/1.1" 200 - 5 0.003 0.002
+2025-03-12 19:00:08,235 72619 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2025-03-12 19:00:09,514 72619 INFO yipaierp werkzeug: 127.0.0.1 - - [12/Mar/2025 19:00:09] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.001 0.006
